@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,11 @@
 		0A2C7BAB25DE9B6C00B7F6BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C7BA925DE9B6C00B7F6BE /* LaunchScreen.storyboard */; };
 		0A2C7BB625DE9B6C00B7F6BE /* YStocksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BB525DE9B6C00B7F6BE /* YStocksTests.swift */; };
 		0A2C7BC125DE9B6C00B7F6BE /* YStocksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BC025DE9B6C00B7F6BE /* YStocksUITests.swift */; };
+		0A2C7BD625DEC32700B7F6BE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2C7BD525DEC32700B7F6BE /* Moya */; };
+		0A2C7BDC25DEC37500B7F6BE /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A2C7BDB25DEC37500B7F6BE /* PromiseKit */; };
+		0A2C7C0A25DEC72100B7F6BE /* StockSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7C0925DEC72100B7F6BE /* StockSymbol.swift */; };
+		0A2C7C0F25DEC75A00B7F6BE /* StockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7C0E25DEC75A00B7F6BE /* StockType.swift */; };
+		0A2C7C1925DEC8FF00B7F6BE /* MarketIdentifierCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7C1825DEC8FF00B7F6BE /* MarketIdentifierCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,9 @@
 		0A2C7BBC25DE9B6C00B7F6BE /* YStocksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YStocksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2C7BC025DE9B6C00B7F6BE /* YStocksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YStocksUITests.swift; sourceTree = "<group>"; };
 		0A2C7BC225DE9B6C00B7F6BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A2C7C0925DEC72100B7F6BE /* StockSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSymbol.swift; sourceTree = "<group>"; };
+		0A2C7C0E25DEC75A00B7F6BE /* StockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockType.swift; sourceTree = "<group>"; };
+		0A2C7C1825DEC8FF00B7F6BE /* MarketIdentifierCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketIdentifierCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2C7BD625DEC32700B7F6BE /* Moya in Frameworks */,
+				0A2C7BDC25DEC37500B7F6BE /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +109,8 @@
 		0A2C7B9D25DE9B6A00B7F6BE /* YStocks */ = {
 			isa = PBXGroup;
 			children = (
+				0A2C7C2825DECD3400B7F6BE /* Networking */,
+				0A2C7BE025DEC39E00B7F6BE /* Model */,
 				0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */,
 				0A2C7BA025DE9B6A00B7F6BE /* SceneDelegate.swift */,
 				0A2C7BA225DE9B6A00B7F6BE /* ViewController.swift */,
@@ -128,6 +140,23 @@
 			path = YStocksUITests;
 			sourceTree = "<group>";
 		};
+		0A2C7BE025DEC39E00B7F6BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A2C7C0925DEC72100B7F6BE /* StockSymbol.swift */,
+				0A2C7C0E25DEC75A00B7F6BE /* StockType.swift */,
+				0A2C7C1825DEC8FF00B7F6BE /* MarketIdentifierCode.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0A2C7C2825DECD3400B7F6BE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +173,10 @@
 			dependencies = (
 			);
 			name = YStocks;
+			packageProductDependencies = (
+				0A2C7BD525DEC32700B7F6BE /* Moya */,
+				0A2C7BDB25DEC37500B7F6BE /* PromiseKit */,
+			);
 			productName = YStocks;
 			productReference = 0A2C7B9B25DE9B6A00B7F6BE /* YStocks.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +248,10 @@
 				Base,
 			);
 			mainGroup = 0A2C7B9225DE9B6A00B7F6BE;
+			packageReferences = (
+				0A2C7BD425DEC32700B7F6BE /* XCRemoteSwiftPackageReference "Moya" */,
+				0A2C7BDA25DEC37500B7F6BE /* XCRemoteSwiftPackageReference "PromiseKit" */,
+			);
 			productRefGroup = 0A2C7B9C25DE9B6A00B7F6BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,7 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */,
+				0A2C7C1925DEC8FF00B7F6BE /* MarketIdentifierCode.swift in Sources */,
 				0A2C7B9F25DE9B6A00B7F6BE /* AppDelegate.swift in Sources */,
+				0A2C7C0F25DEC75A00B7F6BE /* StockType.swift in Sources */,
+				0A2C7C0A25DEC72100B7F6BE /* StockSymbol.swift in Sources */,
 				0A2C7BA125DE9B6A00B7F6BE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +635,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A2C7BD425DEC32700B7F6BE /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
+		0A2C7BDA25DEC37500B7F6BE /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DimaRU/PromiseKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A2C7BD525DEC32700B7F6BE /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2C7BD425DEC32700B7F6BE /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		0A2C7BDB25DEC37500B7F6BE /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A2C7BDA25DEC37500B7F6BE /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A2C7B9325DE9B6A00B7F6BE /* Project object */;
 }
