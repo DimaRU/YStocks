@@ -10,24 +10,19 @@ import XCTest
 
 class YStocksTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testGetCompanyProfile()
+    {
+        let expectation = XCTestExpectation(description: "Test Finprovider request")
+        FinProvider.shared.request(.profile(symbol: "YNDX"))
+            .done { (quote: Quote) in
+                print(quote)
+            }.catch { error in
+                XCTFail(String(reflecting: error))
+            }.finally {
+                expectation.fulfill()
+            }
+        wait(for: [expectation], timeout: 10)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }
