@@ -5,7 +5,7 @@
 
 struct StockSymbol: Codable {
     let currency: String
-    let stockSymbolDescription: String
+    let `description`: String
     let displaySymbol: String
     let figi: String
     let mic: MarketIdentifierCode

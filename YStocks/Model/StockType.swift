@@ -4,35 +4,35 @@
 //
 
 enum StockType: String, Codable {
-    case adr
-    case bdr
-    case cdi
-    case closedEndFund
-    case commonStock
-    case dutchCERT
-    case empty
-    case equityWRT
-    case etp
-    case fdic
-    case foreignSh
-    case fundOfFunds
-    case gdr
-    case ltdPart
-    case misc
-    case mlp
-    case nvdr
-    case nyRegShrs
-    case openEndFund
-    case preference
-    case prfdWRT
-    case pvtEqtyFund
-    case receipt
-    case reit
-    case royaltyTrst
-    case savingsShare
-    case sdr
-    case stapledSecurity
-    case trackingStk
-    case typeRight
-    case unit
+    case adr = "ADR"
+    case bdr = "BDR"
+    case cdi = "CDI"
+    case closedEndFund = "Closed-End Fund"
+    case commonStock = "Common Stock"
+    case dutchCERT = "Dutch Cert"
+    case empty = ""
+    case equityWRT = "Equity WRT"
+    case etp = "ETP"
+    case fdic = "FDIC"
+    case foreignSh = "Foreign Sh."
+    case fundOfFunds = "Fund of Funds"
+    case gdr = "GDR"
+    case ltdPart = "Ltd Part"
+    case misc = "Misc."
+    case mlp = "MLP"
+    case nvdr = "NVDR"
+    case nyRegShrs = "NY Reg Shrs"
+    case openEndFund = "Open-End Fund"
+    case preference = "Preference"
+    case prfdWRT = "Prfd WRT"
+    case pvtEqtyFund = "Pvt Eqty Fund"
+    case receipt = "Receipt"
+    case reit = "REIT"
+    case royaltyTrst = "Royalty Trst"
+    case savingsShare = "Savings Share"
+    case sdr = "SDR"
+    case stapledSecurity = "Stapled Security"
+    case trackingStk = "Tracking Stk"
+    case typeRight = "Right"
+    case unit = "Unit"
 }

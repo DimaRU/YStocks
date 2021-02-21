@@ -7,6 +7,7 @@
 
 import XCTest
 import Moya
+import PromiseKit
 @testable import YStocks
 
 class YStocksTests: XCTestCase {
@@ -34,6 +35,18 @@ class YStocksTests: XCTestCase {
         FinProvider.shared.request(.profile(symbol: "AAPL"))
             .done { (profile: SymbolProfile) in
                 print(profile)
+            }.then {
+                FinProvider.shared.request(.stockSymbol(exchange: "US"))
+            }.done { (symbols: [StockSymbol]) in
+                print( symbols.first(where: { $0.symbol == "YNDX"})!)
+            }.then {
+                FinProvider.shared.request(.ytrending)
+            }.done { (reply: RapidAPIReply) in
+                print(reply.finance.result!.first!.count, reply.finance.result!.first!.quotes.first!)
+            }.then {
+                FinProvider.shared.request(.trending)
+            }.done { (reply: [MboumReply]) in
+                print(reply.first!.quotes.first!)
             }.catch { error in
                 XCTFail(String(reflecting: error))
             }.finally {

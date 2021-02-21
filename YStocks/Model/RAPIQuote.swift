@@ -3,10 +3,12 @@
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
+import Foundation
+
 struct RAPIQuote: Codable {
     let language: String
     let region: String
-    let quoteType: QuoteType
+    let quoteType: String
     let triggerable: Bool
     let quoteSourceName: String
     let fullExchangeName: String
@@ -32,17 +34,10 @@ struct RAPIQuote: Codable {
     let contractSymbol: Bool?
     let headSymbolAsString: String?
 
-
     enum MarketState: String, Codable {
-        case postpost
-        case pre
-        case regular
-    }
-
-    enum QuoteType: String, Codable {
-        case cryptocurrency
-        case equity
-        case future
+        case postpost = "POSTPOST"
+        case pre = "PRE"
+        case regular = "REGULAR"
+        case closed = "CLOSED"
     }
 }
-

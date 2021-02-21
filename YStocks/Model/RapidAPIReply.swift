@@ -3,6 +3,8 @@
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
+import Foundation
+
 struct RapidAPIReply: Codable {
     let finance: Finance
 
@@ -14,7 +16,7 @@ struct RapidAPIReply: Codable {
     struct Result: Codable {
         let count: Int
         let quotes: [RAPIQuote]
-        let jobTimestamp: Int
+        let jobTimestamp: Date
         let startInterval: Int
     }
 }

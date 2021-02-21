@@ -10,7 +10,7 @@
 		0A28065525E2414D00E430C1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0A28065425E2414D00E430C1 /* Kingfisher */; };
 		0A28065F25E2867800E430C1 /* FinAPISample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28065E25E2867800E430C1 /* FinAPISample.swift */; };
 		0A28066325E290CC00E430C1 /* SymbolProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28066225E290CC00E430C1 /* SymbolProfile.swift */; };
-		0A28066C25E294EB00E430C1 /* symbolProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A28066B25E294EB00E430C1 /* symbolProfile.json */; };
+		0A28066C25E294EB00E430C1 /* symbolProfiles.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A28066B25E294EB00E430C1 /* symbolProfiles.json */; };
 		0A2C7B9F25DE9B6A00B7F6BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */; };
 		0A2C7BA125DE9B6A00B7F6BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BA025DE9B6A00B7F6BE /* SceneDelegate.swift */; };
 		0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BA225DE9B6A00B7F6BE /* ViewController.swift */; };
@@ -25,6 +25,10 @@
 		0A2C7C1925DEC8FF00B7F6BE /* MarketIdentifierCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7C1825DEC8FF00B7F6BE /* MarketIdentifierCode.swift */; };
 		0A2C7C6F25DF02BE00B7F6BE /* FinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7C6E25DF02BE00B7F6BE /* FinAPI.swift */; };
 		0A2C7C7425DF02F700B7F6BE /* FinProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7C7325DF02F700B7F6BE /* FinProvider.swift */; };
+		0A40D37C25E2B8A40078C16F /* stockSymbols_US.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A40D37B25E2B8A40078C16F /* stockSymbols_US.json */; };
+		0A40D37E25E2B9260078C16F /* ytrending-tickers.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A40D37D25E2B9260078C16F /* ytrending-tickers.json */; };
+		0A40D38225E2B9D30078C16F /* mboum-trending.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A40D38125E2B9D30078C16F /* mboum-trending.json */; };
+		0A40D38425E2C9230078C16F /* MboumReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40D38325E2C9230078C16F /* MboumReply.swift */; };
 		0AAB556E25DFDB0D00FCDAC2 /* RapidAPIReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB556D25DFDB0D00FCDAC2 /* RapidAPIReply.swift */; };
 		0AAB557325DFDC0C00FCDAC2 /* RAPIQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */; };
 		0AAB558125E008C900FCDAC2 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB558025E008C900FCDAC2 /* Quote.swift */; };
@@ -44,7 +48,7 @@
 /* Begin PBXFileReference section */
 		0A28065E25E2867800E430C1 /* FinAPISample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinAPISample.swift; sourceTree = "<group>"; };
 		0A28066225E290CC00E430C1 /* SymbolProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolProfile.swift; sourceTree = "<group>"; };
-		0A28066B25E294EB00E430C1 /* symbolProfile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = symbolProfile.json; sourceTree = "<group>"; };
+		0A28066B25E294EB00E430C1 /* symbolProfiles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = symbolProfiles.json; sourceTree = "<group>"; };
 		0A28067125E2A9E400E430C1 /* YStocks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YStocks.entitlements; sourceTree = "<group>"; };
 		0A2C7B9B25DE9B6A00B7F6BE /* YStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,10 @@
 		0A2C7C1825DEC8FF00B7F6BE /* MarketIdentifierCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketIdentifierCode.swift; sourceTree = "<group>"; };
 		0A2C7C6E25DF02BE00B7F6BE /* FinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinAPI.swift; sourceTree = "<group>"; };
 		0A2C7C7325DF02F700B7F6BE /* FinProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinProvider.swift; sourceTree = "<group>"; };
+		0A40D37B25E2B8A40078C16F /* stockSymbols_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stockSymbols_US.json; sourceTree = "<group>"; };
+		0A40D37D25E2B9260078C16F /* ytrending-tickers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ytrending-tickers.json"; sourceTree = "<group>"; };
+		0A40D38125E2B9D30078C16F /* mboum-trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mboum-trending.json"; sourceTree = "<group>"; };
+		0A40D38325E2C9230078C16F /* MboumReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MboumReply.swift; sourceTree = "<group>"; };
 		0AAB556D25DFDB0D00FCDAC2 /* RapidAPIReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIReply.swift; sourceTree = "<group>"; };
 		0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAPIQuote.swift; sourceTree = "<group>"; };
 		0AAB558025E008C900FCDAC2 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -92,7 +100,10 @@
 		0A28066A25E2949B00E430C1 /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
-				0A28066B25E294EB00E430C1 /* symbolProfile.json */,
+				0A40D38125E2B9D30078C16F /* mboum-trending.json */,
+				0A40D37B25E2B8A40078C16F /* stockSymbols_US.json */,
+				0A40D37D25E2B9260078C16F /* ytrending-tickers.json */,
+				0A28066B25E294EB00E430C1 /* symbolProfiles.json */,
 			);
 			path = SampleData;
 			sourceTree = "<group>";
@@ -152,6 +163,7 @@
 				0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */,
 				0AAB558025E008C900FCDAC2 /* Quote.swift */,
 				0A28066225E290CC00E430C1 /* SymbolProfile.swift */,
+				0A40D38325E2C9230078C16F /* MboumReply.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,7 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A28066C25E294EB00E430C1 /* symbolProfile.json in Resources */,
+				0A40D37C25E2B8A40078C16F /* stockSymbols_US.json in Resources */,
+				0A40D37E25E2B9260078C16F /* ytrending-tickers.json in Resources */,
+				0A28066C25E294EB00E430C1 /* symbolProfiles.json in Resources */,
+				0A40D38225E2B9D30078C16F /* mboum-trending.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A40D38425E2C9230078C16F /* MboumReply.swift in Sources */,
 				0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */,
 				0AAB558725E0197200FCDAC2 /* FinNetworkError.swift in Sources */,
 				0A2C7C1925DEC8FF00B7F6BE /* MarketIdentifierCode.swift in Sources */,
@@ -384,7 +400,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -439,7 +456,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +519,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
 				INFOPLIST_FILE = YStocksTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,7 +540,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
 				INFOPLIST_FILE = YStocksTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

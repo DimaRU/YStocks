@@ -4,13 +4,14 @@
 //
 
 enum MarketIdentifierCode: String, Codable {
-    case arcx
-    case bats
-    case ootc
-    case otcm
-    case xase
-    case xncm
-    case xngs
-    case xnms
-    case xnys
+    case arcx = "ARCX"
+    case bats = "BATS"
+    case ootc = "OOTC"
+    case otcm = "OTCM"
+    case xase = "XASE"
+    case xncm = "XNCM"
+    case xngs = "XNGS"
+    case xnms = "XNMS"
+    case xnys = "XNYS"
 }
+

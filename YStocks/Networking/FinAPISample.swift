@@ -6,6 +6,7 @@
 import Foundation
 import Moya
 
+#if DEBUG
 extension FinAPI {
     static var sampleBundle: Bundle?
 
@@ -31,14 +32,14 @@ extension FinAPI {
     var sampleData: Data {
         switch self {
         case .stockSymbol(exchange: let exchange):
-            return loadSampleData(name: "stockSymbol_\(exchange)") ?? Data()
+            return loadSampleData(name: "stockSymbols_\(exchange)") ?? Data()
         case .trending:
-            return loadSampleData(name: "trending") ?? Data()
+            return loadSampleData(name: "mboum-trending") ?? Data()
         case .ytrending:
-            return loadSampleData(name: "ytrending") ?? Data()
+            return loadSampleData(name: "ytrending-tickers") ?? Data()
         case .profile(symbol: let symbol):
             guard
-                let sampleArray: [SymbolProfile] = loadSample(type: [SymbolProfile].self, name: "symbolProfile"),
+                let sampleArray: [SymbolProfile] = loadSample(type: [SymbolProfile].self, name: "symbolProfiles"),
                 let sample = sampleArray.first(where: { $0.ticker == symbol })
             else { return Data() }
             let encoder = JSONEncoder()
@@ -49,3 +50,10 @@ extension FinAPI {
     }
 
 }
+#else
+extension FinAPI {
+    var sampleData: Data {
+        Data()
+    }
+}
+#endif
