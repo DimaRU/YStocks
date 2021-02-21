@@ -45,6 +45,7 @@
 		0A28065E25E2867800E430C1 /* FinAPISample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinAPISample.swift; sourceTree = "<group>"; };
 		0A28066225E290CC00E430C1 /* SymbolProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolProfile.swift; sourceTree = "<group>"; };
 		0A28066B25E294EB00E430C1 /* symbolProfile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = symbolProfile.json; sourceTree = "<group>"; };
+		0A28067125E2A9E400E430C1 /* YStocks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YStocks.entitlements; sourceTree = "<group>"; };
 		0A2C7B9B25DE9B6A00B7F6BE /* YStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A2C7BA025DE9B6A00B7F6BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 				0A2C7BA425DE9B6A00B7F6BE /* Main.storyboard */,
 				0A2C7BA725DE9B6C00B7F6BE /* Assets.xcassets */,
 				0A2C7BA925DE9B6C00B7F6BE /* LaunchScreen.storyboard */,
+				0A28067125E2A9E400E430C1 /* YStocks.entitlements */,
 				0A2C7BAC25DE9B6C00B7F6BE /* Info.plist */,
 			);
 			path = YStocks;
@@ -452,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = YStocks/YStocks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
 				INFOPLIST_FILE = YStocks/Info.plist;
@@ -462,6 +465,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.ioshack.YStocks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -472,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = YStocks/YStocks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BEQ8V4XH9;
 				INFOPLIST_FILE = YStocks/Info.plist;
@@ -482,6 +487,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.ioshack.YStocks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
