@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0A28065525E2414D00E430C1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0A28065425E2414D00E430C1 /* Kingfisher */; };
+		0A28065F25E2867800E430C1 /* FinAPISample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28065E25E2867800E430C1 /* FinAPISample.swift */; };
+		0A28066325E290CC00E430C1 /* SymbolProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28066225E290CC00E430C1 /* SymbolProfile.swift */; };
+		0A28066C25E294EB00E430C1 /* symbolProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A28066B25E294EB00E430C1 /* symbolProfile.json */; };
 		0A2C7B9F25DE9B6A00B7F6BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */; };
 		0A2C7BA125DE9B6A00B7F6BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BA025DE9B6A00B7F6BE /* SceneDelegate.swift */; };
 		0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BA225DE9B6A00B7F6BE /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A28065E25E2867800E430C1 /* FinAPISample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinAPISample.swift; sourceTree = "<group>"; };
+		0A28066225E290CC00E430C1 /* SymbolProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolProfile.swift; sourceTree = "<group>"; };
+		0A28066B25E294EB00E430C1 /* symbolProfile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = symbolProfile.json; sourceTree = "<group>"; };
 		0A2C7B9B25DE9B6A00B7F6BE /* YStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A2C7BA025DE9B6A00B7F6BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A28066A25E2949B00E430C1 /* SampleData */ = {
+			isa = PBXGroup;
+			children = (
+				0A28066B25E294EB00E430C1 /* symbolProfile.json */,
+			);
+			path = SampleData;
+			sourceTree = "<group>";
+		};
 		0A2C7B9225DE9B6A00B7F6BE = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2C7BB525DE9B6C00B7F6BE /* YStocksTests.swift */,
+				0A28066A25E2949B00E430C1 /* SampleData */,
 				0A2C7BB725DE9B6C00B7F6BE /* Info.plist */,
 			);
 			path = YStocksTests;
@@ -134,6 +149,7 @@
 				0AAB556D25DFDB0D00FCDAC2 /* RapidAPIReply.swift */,
 				0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */,
 				0AAB558025E008C900FCDAC2 /* Quote.swift */,
+				0A28066225E290CC00E430C1 /* SymbolProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2C7C6E25DF02BE00B7F6BE /* FinAPI.swift */,
+				0A28065E25E2867800E430C1 /* FinAPISample.swift */,
 				0A2C7C7325DF02F700B7F6BE /* FinProvider.swift */,
 				0AAB558625E0197200FCDAC2 /* FinNetworkError.swift */,
 			);
@@ -248,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A28066C25E294EB00E430C1 /* symbolProfile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +279,12 @@
 				0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */,
 				0AAB558725E0197200FCDAC2 /* FinNetworkError.swift in Sources */,
 				0A2C7C1925DEC8FF00B7F6BE /* MarketIdentifierCode.swift in Sources */,
+				0A28066325E290CC00E430C1 /* SymbolProfile.swift in Sources */,
 				0A2C7C6F25DF02BE00B7F6BE /* FinAPI.swift in Sources */,
 				0A2C7B9F25DE9B6A00B7F6BE /* AppDelegate.swift in Sources */,
 				0A2C7C0F25DEC75A00B7F6BE /* StockType.swift in Sources */,
 				0A2C7C0A25DEC72100B7F6BE /* StockSymbol.swift in Sources */,
+				0A28065F25E2867800E430C1 /* FinAPISample.swift in Sources */,
 				0AAB557325DFDC0C00FCDAC2 /* RAPIQuote.swift in Sources */,
 				0AAB556E25DFDB0D00FCDAC2 /* RapidAPIReply.swift in Sources */,
 				0A2C7C7425DF02F700B7F6BE /* FinProvider.swift in Sources */,

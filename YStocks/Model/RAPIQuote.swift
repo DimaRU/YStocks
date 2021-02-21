@@ -3,7 +3,7 @@
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
-struct RAPIQuote {
+struct RAPIQuote: Codable {
     let language: String
     let region: String
     let quoteType: QuoteType
@@ -33,13 +33,13 @@ struct RAPIQuote {
     let headSymbolAsString: String?
 
 
-    enum MarketState {
+    enum MarketState: String, Codable {
         case postpost
         case pre
         case regular
     }
 
-    enum QuoteType {
+    enum QuoteType: String, Codable {
         case cryptocurrency
         case equity
         case future

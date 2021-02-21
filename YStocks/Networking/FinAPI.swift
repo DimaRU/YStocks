@@ -18,7 +18,7 @@ enum FinAPI: TargetType {
     var baseURL: URL {
         switch self {
         case .stockSymbol,
-             .profile:  return URL(string: "https://finnhub.io/api/v1")!
+             .profile     : return URL(string: "https://finnhub.io/api/v1")!
         case .trending    : return URL(string: "https://mboum.com/api/v1")!
         case .ytrending   : return URL(string: "https://apidojo-yahoo-finance-v1.p.rapidapi.com")!
         }
@@ -79,9 +79,4 @@ enum FinAPI: TargetType {
     }
 
     static let urlEncoding = URLEncoding(destination: .methodDependent, arrayEncoding: .noBrackets, boolEncoding: .literal)
-
-    var sampleData: Data {
-        return Data()
-    }
-
 }

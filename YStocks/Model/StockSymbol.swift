@@ -3,7 +3,7 @@
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
-struct StockSymbol {
+struct StockSymbol: Codable {
     let currency: String
     let stockSymbolDescription: String
     let displaySymbol: String

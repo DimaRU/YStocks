@@ -3,15 +3,15 @@
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
-struct RapidAPIReply {
+struct RapidAPIReply: Codable {
     let finance: Finance
 
-    struct Finance {
+    struct Finance: Codable {
         let result: [Result]?
         let error: String?
     }
 
-    struct Result {
+    struct Result: Codable {
         let count: Int
         let quotes: [RAPIQuote]
         let jobTimestamp: Int

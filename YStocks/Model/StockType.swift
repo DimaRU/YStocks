@@ -3,7 +3,7 @@
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
-enum StockType {
+enum StockType: String, Codable {
     case adr
     case bdr
     case cdi

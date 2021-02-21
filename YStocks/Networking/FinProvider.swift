@@ -15,7 +15,7 @@ class FinProvider {
     static let shared = FinProvider()
 
     #if DEBUG
-    fileprivate static let instance = { () -> MoyaProvider<FinAPI> in
+    static var instance = { () -> MoyaProvider<FinAPI> in
         let configuration = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
         if let value = ProcessInfo.processInfo.environment["MoyaLogger"] {
             return MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.defaultEndpointMapping, plugins: [NetworkLoggerPlugin(configuration: configuration)])
@@ -24,7 +24,7 @@ class FinProvider {
         }
     }()
     #else
-    fileprivate static let instance = MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.endpointClosure)
+    static var instance = MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.endpointClosure)
     #endif
 
     // MARK: - Public

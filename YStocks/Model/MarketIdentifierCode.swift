@@ -3,7 +3,7 @@
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
-enum MarketIdentifierCode {
+enum MarketIdentifierCode: String, Codable {
     case arcx
     case bats
     case ootc
