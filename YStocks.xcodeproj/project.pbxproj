@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A28065525E2414D00E430C1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0A28065425E2414D00E430C1 /* Kingfisher */; };
 		0A2C7B9F25DE9B6A00B7F6BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */; };
 		0A2C7BA125DE9B6A00B7F6BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BA025DE9B6A00B7F6BE /* SceneDelegate.swift */; };
 		0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C7BA225DE9B6A00B7F6BE /* ViewController.swift */; };
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A28065525E2414D00E430C1 /* Kingfisher in Frameworks */,
 				0A2C7BD625DEC32700B7F6BE /* Moya in Frameworks */,
 				0A2C7BDC25DEC37500B7F6BE /* PromiseKit in Frameworks */,
 			);
@@ -194,6 +196,7 @@
 			packageProductDependencies = (
 				0A2C7BD525DEC32700B7F6BE /* Moya */,
 				0A2C7BDB25DEC37500B7F6BE /* PromiseKit */,
+				0A28065425E2414D00E430C1 /* Kingfisher */,
 			);
 			productName = YStocks;
 			productReference = 0A2C7B9B25DE9B6A00B7F6BE /* YStocks.app */;
@@ -269,6 +272,7 @@
 			packageReferences = (
 				0A2C7BD425DEC32700B7F6BE /* XCRemoteSwiftPackageReference "Moya" */,
 				0A2C7BDA25DEC37500B7F6BE /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				0A28065325E2414D00E430C1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0A2C7B9C25DE9B6A00B7F6BE /* Products */;
 			projectDirPath = "";
@@ -661,6 +665,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0A28065325E2414D00E430C1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.1;
+			};
+		};
 		0A2C7BD425DEC32700B7F6BE /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -680,6 +692,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0A28065425E2414D00E430C1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A28065325E2414D00E430C1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		0A2C7BD525DEC32700B7F6BE /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0A2C7BD425DEC32700B7F6BE /* XCRemoteSwiftPackageReference "Moya" */;
