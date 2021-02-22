@@ -12,7 +12,7 @@ struct SymbolProfile: Codable {
     let finnhubIndustry: String
     let ipo: String
     let logo: String
-    let marketCapitalization: Int
+    let marketCapitalization: Double
     let name: String
     let phone: String
     let shareOutstanding: Double

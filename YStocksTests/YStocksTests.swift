@@ -13,8 +13,8 @@ import PromiseKit
 class YStocksTests: XCTestCase {
 
     override func setUp() {
-        FinAPI.sampleBundle = Bundle.init(for: Self.self)
-        FinProvider.instance = MoyaProvider<FinAPI>(stubClosure: MoyaProvider.immediatelyStub)
+//        FinAPI.sampleBundle = Bundle.init(for: Self.self)
+//        FinProvider.instance = MoyaProvider<FinAPI>(stubClosure: MoyaProvider.immediatelyStub)
     }
 //    func testGetCompanyProfile()
 //    {
@@ -53,6 +53,42 @@ class YStocksTests: XCTestCase {
                 expectation.fulfill()
             }
         wait(for: [expectation], timeout: 10)
+    }
 
+
+    func testLoadProfiles() {
+        func loadProfile(for symbol: String) -> Promise<SymbolProfile> {
+            return
+                firstly {
+                    after(seconds: 0.1)
+                }.then {
+                    FinProvider.shared.request(.profile(symbol: symbol))
+                }
+        }
+
+        func loadAllProfiles(for symbols: [String]) -> Promise<[AnyIterator<Promise<SymbolProfile>>.Element.T]> {
+            var symbolsGenerator = symbols.makeIterator()
+
+            let generator = AnyIterator<Promise<SymbolProfile>> {
+                guard
+                    let symbol = symbolsGenerator.next()
+                else { return nil }
+                return loadProfile(for: symbol)
+            }
+            return when(fulfilled: generator, concurrently: 1)
+        }
+
+        let expectation = XCTestExpectation(description: "Load profiles")
+        FinProvider.shared.request(.trending)
+            .then { (reply: [MboumReply]) -> Promise<[AnyIterator<Promise<SymbolProfile>>.Element.T]> in
+                loadAllProfiles(for: reply.first!.quotes)
+            }.done { profiles in
+                print(profiles)
+            }.catch { error in
+                print(error)
+            }.finally {
+                expectation.fulfill()
+            }
+        wait(for: [expectation], timeout: 5000)
     }
 }

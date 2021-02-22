@@ -29,7 +29,7 @@ enum FinAPI: TargetType {
         case .stockSymbol : return "/stock/symbol"
         case .trending    : return "/tr/trending"
         case .ytrending   : return "/market/get-trending-tickers"
-        case .profile     : return "/quote"
+        case .profile     : return "/stock/profile2"
         }
     }
 
