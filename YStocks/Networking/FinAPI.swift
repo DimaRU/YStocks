@@ -12,13 +12,18 @@ enum FinAPI: TargetType {
     case stockSymbol(exchange: String)
     case trending
     case ytrending
+    case constituents(stockIndex: StockIndices)
     case profile(symbol: String)
+    case quote(symbol: String)
 
 
     var baseURL: URL {
         switch self {
         case .stockSymbol,
-             .profile     : return URL(string: "https://finnhub.io/api/v1")!
+             .profile,
+             .constituents,
+             .quote:
+            return URL(string: "https://finnhub.io/api/v1")!
         case .trending    : return URL(string: "https://mboum.com/api/v1")!
         case .ytrending   : return URL(string: "https://apidojo-yahoo-finance-v1.p.rapidapi.com")!
         }
@@ -30,6 +35,8 @@ enum FinAPI: TargetType {
         case .trending    : return "/tr/trending"
         case .ytrending   : return "/market/get-trending-tickers"
         case .profile     : return "/stock/profile2"
+        case .constituents: return "/index/constituents"
+        case .quote: return "/quote"
         }
     }
 
@@ -38,7 +45,10 @@ enum FinAPI: TargetType {
         case .stockSymbol,
              .trending,
              .ytrending,
-             .profile: return .get
+             .constituents,
+             .quote,
+             .profile:
+            return .get
         }
     }
 
@@ -48,14 +58,17 @@ enum FinAPI: TargetType {
         switch self {
         case .stockSymbol(exchange: let exchange):
             parameters["exchange"] = exchange
-            return .requestParameters(parameters: parameters, encoding: Self.urlEncoding)
-        case .trending:
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .trending,
+             .ytrending:
             return .requestPlain
-        case .ytrending:
-            return .requestPlain
-        case .profile(symbol: let symbol):
+        case .profile(symbol: let symbol),
+             .quote(symbol: let symbol):
             parameters["symbol"] = symbol
-            return .requestParameters(parameters: parameters, encoding: Self.urlEncoding)
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .constituents(stockIndex: let stockIndex):
+            parameters["symbol"] = stockIndex.rawValue
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
 
@@ -67,7 +80,9 @@ enum FinAPI: TargetType {
         ]
         switch self {
         case .stockSymbol,
-             .profile:
+             .profile,
+             .constituents,
+             .quote:
             basic["X-Finnhub-Token"] = "c0lvbdn48v6p8fvivtd0"
         case .trending:
             basic["X-Mboum-Secret"] = "6lZCEjA3mhxCNpIQw29jVB2tbZcEjzu1arvaXpcXoXKxwOVR2Tw2qEgzPpqL"
@@ -77,6 +92,4 @@ enum FinAPI: TargetType {
         }
         return basic
     }
-
-    static let urlEncoding = URLEncoding(destination: .methodDependent, arrayEncoding: .noBrackets, boolEncoding: .literal)
 }

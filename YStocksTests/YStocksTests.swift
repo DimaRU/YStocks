@@ -99,7 +99,6 @@ class YStocksTests: XCTestCase {
         let symbols = Set<String>(loadSample(type: [StockSymbol].self, name: "stockSymbols_US")!.map { $0.symbol })
         let usableTrendings = [String](symbols.intersection(trendings))
         print(usableTrendings)
-        print("------------------")
         let expectation = XCTestExpectation(description: "Load profiles")
         loadAllProfiles(for: usableTrendings)
             .done { profiles in
@@ -108,11 +107,12 @@ class YStocksTests: XCTestCase {
                 encoder.dateEncodingStrategy = .secondsSince1970
                 encoder.outputFormatting = .prettyPrinted
                 let data = try! encoder.encode(profilesFiltred)
+                print("------------------")
                 print(String(data: data, encoding: .utf8)!)
+                print("------------------")
             }.catch { error in
                 print(error)
             }.finally {
-                print("------------------")
                 expectation.fulfill()
             }
         wait(for: [expectation], timeout: 5000)
