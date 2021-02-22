@@ -61,32 +61,42 @@ extension FinProvider {
         switch result {
         case let .success(moyaResponse):
             #if DEBUG
-            print(moyaResponse.request?.url?.absoluteString ?? "")
+            print(moyaResponse.request?.url?.absoluteString ?? "", moyaResponse.data.count)
             #endif
             switch moyaResponse.statusCode {
-            case 200...299, 300...399:
+            case 200:
+                if moyaResponse.data.isEmpty ||
+                    (moyaResponse.data.count == 2 && String(data: moyaResponse.data, encoding: .utf8) == "{}") {
+                    request.reject(FinNetworkError.empty)
+                    return
+                }
+                fallthrough
+            case 201...299, 300...399:
                 request.resolve(moyaResponse.data)
             case 429:
+                #if DEBUG
+                print("Error 429")
+                #endif
                 handleNetworkFailureWithRetry(request: request)
             default:
                 handleServerError(request: request, response: moyaResponse)
             }
         case .failure:
-            request.reject(NatNetworkError.unavailable)
+            request.reject(FinNetworkError.unavailable)
         //            handleNetworkFailure(request: request)
         }
     }
 
     private func handleServerError(request: RequestFuture, response moyaResponse: Moya.Response) {
         let statusCode = moyaResponse.statusCode
-        let error = NatNetworkError.serverError(code: statusCode)
+        let error = FinNetworkError.serverError(code: statusCode)
         request.reject(error)
     }
 
     private func handleNetworkFailureWithRetry(request: RequestFuture) {
-//        delay(1) {
-//            self.sendRequest(request)
-//        }
+        delay(2) {
+            self.sendRequest(request)
+        }
     }
 
     fileprivate func parseData<T: Decodable>(data: Data, seal: Resolver<T>, target: FinAPI) {
@@ -102,7 +112,7 @@ extension FinProvider {
             print(error)
             #endif
             let message = error.localizedDescription
-            seal.reject(NatNetworkError.responceSyntaxError(message: message))
+            seal.reject(FinNetworkError.responceSyntaxError(message: message))
         }
     }
 }

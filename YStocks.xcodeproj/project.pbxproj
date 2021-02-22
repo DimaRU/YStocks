@@ -29,6 +29,7 @@
 		0A40D37E25E2B9260078C16F /* ytrending-tickers.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A40D37D25E2B9260078C16F /* ytrending-tickers.json */; };
 		0A40D38225E2B9D30078C16F /* mboum-trending.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A40D38125E2B9D30078C16F /* mboum-trending.json */; };
 		0A40D38425E2C9230078C16F /* MboumReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40D38325E2C9230078C16F /* MboumReply.swift */; };
+		0A6CD28C25E3A7440060217B /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CD28B25E3A7440060217B /* FreeMethods.swift */; };
 		0AAB556E25DFDB0D00FCDAC2 /* RapidAPIReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB556D25DFDB0D00FCDAC2 /* RapidAPIReply.swift */; };
 		0AAB557325DFDC0C00FCDAC2 /* RAPIQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */; };
 		0AAB558125E008C900FCDAC2 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB558025E008C900FCDAC2 /* Quote.swift */; };
@@ -70,6 +71,7 @@
 		0A40D37D25E2B9260078C16F /* ytrending-tickers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ytrending-tickers.json"; sourceTree = "<group>"; };
 		0A40D38125E2B9D30078C16F /* mboum-trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mboum-trending.json"; sourceTree = "<group>"; };
 		0A40D38325E2C9230078C16F /* MboumReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MboumReply.swift; sourceTree = "<group>"; };
+		0A6CD28B25E3A7440060217B /* FreeMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
 		0AAB556D25DFDB0D00FCDAC2 /* RapidAPIReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIReply.swift; sourceTree = "<group>"; };
 		0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAPIQuote.swift; sourceTree = "<group>"; };
 		0AAB558025E008C900FCDAC2 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				0A2C7BE025DEC39E00B7F6BE /* Model */,
 				0A2C7B9E25DE9B6A00B7F6BE /* AppDelegate.swift */,
 				0A2C7BA025DE9B6A00B7F6BE /* SceneDelegate.swift */,
+				0A6CD28B25E3A7440060217B /* FreeMethods.swift */,
 				0A2C7BA225DE9B6A00B7F6BE /* ViewController.swift */,
 				0A2C7BA425DE9B6A00B7F6BE /* Main.storyboard */,
 				0A2C7BA725DE9B6C00B7F6BE /* Assets.xcassets */,
@@ -295,6 +298,7 @@
 			files = (
 				0A40D38425E2C9230078C16F /* MboumReply.swift in Sources */,
 				0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */,
+				0A6CD28C25E3A7440060217B /* FreeMethods.swift in Sources */,
 				0AAB558725E0197200FCDAC2 /* FinNetworkError.swift in Sources */,
 				0A2C7C1925DEC8FF00B7F6BE /* MarketIdentifierCode.swift in Sources */,
 				0A28066325E290CC00E430C1 /* SymbolProfile.swift in Sources */,

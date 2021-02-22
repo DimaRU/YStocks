@@ -57,12 +57,29 @@ class YStocksTests: XCTestCase {
 
 
     func testLoadProfiles() {
+        func loadSample<T: Decodable>(type: T.Type, name: String) -> T? {
+            let bundle = Bundle.init(for: Self.self)
+            guard
+                let path = bundle.url(forResource: name, withExtension: "json"),
+                let data = try? Data(contentsOf: path)
+            else { return nil }
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
+            return try? decoder.decode(type, from: data)
+        }
+
         func loadProfile(for symbol: String) -> Promise<SymbolProfile> {
             return
                 firstly {
-                    after(seconds: 0.1)
+                    after(seconds: 1.2)
                 }.then {
                     FinProvider.shared.request(.profile(symbol: symbol))
+                }.recover { error -> Promise<SymbolProfile> in
+                    if case FinNetworkError.empty = error {
+                        let profile = SymbolProfile(country: "", currency: "", exchange: "", finnhubIndustry: "", ipo: "", logo: "", marketCapitalization: 0, name: "", phone: "", shareOutstanding: 0, ticker: "empty", weburl: "")
+                        return Promise.value(profile)
+                    }
+                    throw error
                 }
         }
 
@@ -78,15 +95,24 @@ class YStocksTests: XCTestCase {
             return when(fulfilled: generator, concurrently: 1)
         }
 
+        let trendings = Set<String>(loadSample(type: [MboumReply].self, name: "mboum-trending")!.first!.quotes)
+        let symbols = Set<String>(loadSample(type: [StockSymbol].self, name: "stockSymbols_US")!.map { $0.symbol })
+        let usableTrendings = [String](symbols.intersection(trendings))
+        print(usableTrendings)
+        print("------------------")
         let expectation = XCTestExpectation(description: "Load profiles")
-        FinProvider.shared.request(.trending)
-            .then { (reply: [MboumReply]) -> Promise<[AnyIterator<Promise<SymbolProfile>>.Element.T]> in
-                loadAllProfiles(for: reply.first!.quotes)
-            }.done { profiles in
-                print(profiles)
+        loadAllProfiles(for: usableTrendings)
+            .done { profiles in
+                let profilesFiltred = profiles.filter{ $0.ticker != "empty" }
+                let encoder = JSONEncoder()
+                encoder.dateEncodingStrategy = .secondsSince1970
+                encoder.outputFormatting = .prettyPrinted
+                let data = try! encoder.encode(profilesFiltred)
+                print(String(data: data, encoding: .utf8)!)
             }.catch { error in
                 print(error)
             }.finally {
+                print("------------------")
                 expectation.fulfill()
             }
         wait(for: [expectation], timeout: 5000)
