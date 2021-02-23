@@ -6,11 +6,11 @@
 import Foundation
 
 struct Quote: Codable {
-    let currentPrice: Double
-    let highPrice: Double
-    let lowPrice: Double
-    let openPrice: Double
-    let previousClosePrice: Double
+    let currentPrice: Float
+    let highPrice: Float
+    let lowPrice: Float
+    let openPrice: Float
+    let previousClosePrice: Float
     let timeStamp: Date
 
     enum CodingKeys: String, CodingKey {

@@ -37,20 +37,13 @@ extension FinAPI {
             return loadSampleData(name: "mboum-trending") ?? Data()
         case .ytrending:
             return loadSampleData(name: "ytrending-tickers") ?? Data()
-        case .constituents(stockIndex: let stockIndex):
-            return loadSampleData(name: "constituents_\(stockIndex.rawValue.dropFirst(1))") ?? Data()
+        case .constituents(stocksIndex: let stocksIndex):
+            return loadSampleData(name: "constituents_\(stocksIndex.rawValue.dropFirst(1))") ?? Data()
+        case .quote:
+            return loadSampleData(name: "quote") ?? Data()
         case .profile(symbol: let symbol):
             guard
                 let sampleArray: [SymbolProfile] = loadSample(type: [SymbolProfile].self, name: "symbolProfiles"),
-                let sample = sampleArray.first(where: { $0.ticker == symbol })
-            else { return Data() }
-            let encoder = JSONEncoder()
-            encoder.dateEncodingStrategy = .secondsSince1970
-            let data = try? encoder.encode(sample)
-            return data ?? Data()
-        case .quote(symbol: let symbol):
-            guard
-                let sampleArray: [SymbolProfile] = loadSample(type: [SymbolProfile].self, name: "quotes"),
                 let sample = sampleArray.first(where: { $0.ticker == symbol })
             else { return Data() }
             let encoder = JSONEncoder()

@@ -12,7 +12,7 @@ enum FinAPI: TargetType {
     case stockSymbol(exchange: String)
     case trending
     case ytrending
-    case constituents(stockIndex: StockIndices)
+    case constituents(stocksIndex: StocksIndexName)
     case profile(symbol: String)
     case quote(symbol: String)
 
@@ -66,8 +66,8 @@ enum FinAPI: TargetType {
              .quote(symbol: let symbol):
             parameters["symbol"] = symbol
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
-        case .constituents(stockIndex: let stockIndex):
-            parameters["symbol"] = stockIndex.rawValue
+        case .constituents(stocksIndex: let stocksIndex):
+            parameters["symbol"] = stocksIndex.rawValue
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }

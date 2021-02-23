@@ -13,10 +13,8 @@ struct RAPIQuote: Codable {
     let quoteSourceName: String
     let fullExchangeName: String
     let sourceInterval: Int
-    let regularMarketPreviousClose: Double
     let longName: String?
     let priceHint: Int?
-    let regularMarketChangePercent: Double
     let esgPopulated: Bool
     let tradeable: Bool
     let shortName: String
@@ -26,10 +24,12 @@ struct RAPIQuote: Codable {
     let gmtOffSetMilliseconds: Int
     let exchangeTimezoneName: String
     let exchangeTimezoneShortName: String
-    let exchangeDataDelayedBy: Int
-    let regularMarketPrice: Double
-    let regularMarketTime: Int
-    let regularMarketChange: Double
+    let exchangeDataDelayedBy: Date
+    let regularMarketPreviousClose: Float
+    let regularMarketPrice: Float
+    let regularMarketChangePercent: Float
+    let regularMarketChange: Float
+    let regularMarketTime: Date
     let symbol: String
     let contractSymbol: Bool?
     let headSymbolAsString: String?

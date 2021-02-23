@@ -1,11 +1,11 @@
 /////
-////  StockIndices.swift
+////  StocksIndexName.swift
 ///   Copyright © 2021 Dmitriy Borovikov. All rights reserved.
 //
 
 import Foundation
 
-enum StockIndices: String, Codable {
+enum StocksIndexName: String, Codable {
     case SnP500 = "^GSPC"
     case Nasdaq100 = "^NDX"
     case DowJones = "^DJI"

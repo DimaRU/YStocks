@@ -30,10 +30,12 @@
 		0A40D38225E2B9D30078C16F /* mboum-trending.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A40D38125E2B9D30078C16F /* mboum-trending.json */; };
 		0A40D38425E2C9230078C16F /* MboumReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40D38325E2C9230078C16F /* MboumReply.swift */; };
 		0A6CD28C25E3A7440060217B /* FreeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CD28B25E3A7440060217B /* FreeMethods.swift */; };
-		0A6CD29025E3B3ED0060217B /* StockIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CD28F25E3B3ED0060217B /* StockIndices.swift */; };
+		0A6CD29025E3B3ED0060217B /* StocksIndexName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CD28F25E3B3ED0060217B /* StocksIndexName.swift */; };
 		0A6CD29625E3B8ED0060217B /* constituents_NDX.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A6CD29325E3B8EC0060217B /* constituents_NDX.json */; };
 		0A6CD29725E3B8ED0060217B /* constituents_DJI.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A6CD29425E3B8EC0060217B /* constituents_DJI.json */; };
 		0A6CD29825E3B8ED0060217B /* constituents_GSPC.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A6CD29525E3B8ED0060217B /* constituents_GSPC.json */; };
+		0A6CD2A225E3CA760060217B /* Constituents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CD2A125E3CA760060217B /* Constituents.swift */; };
+		0A75A27525E5001E00EBF9AD /* quote.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A75A27425E5001E00EBF9AD /* quote.json */; };
 		0AAB556E25DFDB0D00FCDAC2 /* RapidAPIReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB556D25DFDB0D00FCDAC2 /* RapidAPIReply.swift */; };
 		0AAB557325DFDC0C00FCDAC2 /* RAPIQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */; };
 		0AAB558125E008C900FCDAC2 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB558025E008C900FCDAC2 /* Quote.swift */; };
@@ -76,10 +78,12 @@
 		0A40D38125E2B9D30078C16F /* mboum-trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mboum-trending.json"; sourceTree = "<group>"; };
 		0A40D38325E2C9230078C16F /* MboumReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MboumReply.swift; sourceTree = "<group>"; };
 		0A6CD28B25E3A7440060217B /* FreeMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeMethods.swift; sourceTree = "<group>"; };
-		0A6CD28F25E3B3ED0060217B /* StockIndices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockIndices.swift; sourceTree = "<group>"; };
+		0A6CD28F25E3B3ED0060217B /* StocksIndexName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksIndexName.swift; sourceTree = "<group>"; };
 		0A6CD29325E3B8EC0060217B /* constituents_NDX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = constituents_NDX.json; sourceTree = "<group>"; };
 		0A6CD29425E3B8EC0060217B /* constituents_DJI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = constituents_DJI.json; sourceTree = "<group>"; };
 		0A6CD29525E3B8ED0060217B /* constituents_GSPC.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = constituents_GSPC.json; sourceTree = "<group>"; };
+		0A6CD2A125E3CA760060217B /* Constituents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constituents.swift; sourceTree = "<group>"; };
+		0A75A27425E5001E00EBF9AD /* quote.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quote.json; sourceTree = "<group>"; };
 		0AAB556D25DFDB0D00FCDAC2 /* RapidAPIReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAPIReply.swift; sourceTree = "<group>"; };
 		0AAB557225DFDC0C00FCDAC2 /* RAPIQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAPIQuote.swift; sourceTree = "<group>"; };
 		0AAB558025E008C900FCDAC2 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 		0A28066A25E2949B00E430C1 /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
+				0A75A27425E5001E00EBF9AD /* quote.json */,
 				0A6CD29425E3B8EC0060217B /* constituents_DJI.json */,
 				0A6CD29525E3B8ED0060217B /* constituents_GSPC.json */,
 				0A6CD29325E3B8EC0060217B /* constituents_NDX.json */,
@@ -178,7 +183,8 @@
 				0AAB558025E008C900FCDAC2 /* Quote.swift */,
 				0A28066225E290CC00E430C1 /* SymbolProfile.swift */,
 				0A40D38325E2C9230078C16F /* MboumReply.swift */,
-				0A6CD28F25E3B3ED0060217B /* StockIndices.swift */,
+				0A6CD28F25E3B3ED0060217B /* StocksIndexName.swift */,
+				0A6CD2A125E3CA760060217B /* Constituents.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A75A27525E5001E00EBF9AD /* quote.json in Resources */,
 				0A6CD29825E3B8ED0060217B /* constituents_GSPC.json in Resources */,
 				0A6CD29725E3B8ED0060217B /* constituents_DJI.json in Resources */,
 				0A40D37C25E2B8A40078C16F /* stockSymbols_US.json in Resources */,
@@ -311,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6CD2A225E3CA760060217B /* Constituents.swift in Sources */,
 				0A40D38425E2C9230078C16F /* MboumReply.swift in Sources */,
 				0A2C7BA325DE9B6A00B7F6BE /* ViewController.swift in Sources */,
 				0A6CD28C25E3A7440060217B /* FreeMethods.swift in Sources */,
@@ -318,7 +326,7 @@
 				0A2C7C1925DEC8FF00B7F6BE /* MarketIdentifierCode.swift in Sources */,
 				0A28066325E290CC00E430C1 /* SymbolProfile.swift in Sources */,
 				0A2C7C6F25DF02BE00B7F6BE /* FinAPI.swift in Sources */,
-				0A6CD29025E3B3ED0060217B /* StockIndices.swift in Sources */,
+				0A6CD29025E3B3ED0060217B /* StocksIndexName.swift in Sources */,
 				0A2C7B9F25DE9B6A00B7F6BE /* AppDelegate.swift in Sources */,
 				0A2C7C0F25DEC75A00B7F6BE /* StockType.swift in Sources */,
 				0A2C7C0A25DEC72100B7F6BE /* StockSymbol.swift in Sources */,

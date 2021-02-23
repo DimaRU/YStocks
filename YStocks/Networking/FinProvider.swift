@@ -44,11 +44,15 @@ class FinProvider {
         return promise
     }
 
+    func requestData(_ target: FinAPI) -> Promise<Data> {
+        let (promise, seal) = Promise<Data>.pending()
+        sendRequest((target,
+                     resolve: { seal.fulfill($0 as! Data) },
+                     reject: seal.reject))
+        return promise
+    }
 
     private func sendRequest(_ request: RequestFuture) {
-        #if DEBUG
-        print("Request:", request.target)
-        #endif
         FinProvider.instance.request(request.target) { (result) in
             self.handleRequest(request: request, result: result)
         }
