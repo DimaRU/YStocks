@@ -55,11 +55,11 @@ class FinProvider {
     }
 
     // MARK: - Private
-    private var requestInProgress = false
+    private var requestsInProgress: Int = 0
     private var requestQueue: [RequestFuture] = []
 
     private func enqueueRequest(_ request: RequestFuture) {
-        if requestInProgress || !requestQueue.isEmpty {
+        if requestsInProgress != 0 || !requestQueue.isEmpty {
             requestQueue.append(request)
         } else {
             sendRequest(request)
@@ -67,7 +67,7 @@ class FinProvider {
     }
 
     private func dequeRequest() {
-        guard !requestInProgress && !requestQueue.isEmpty else { return }
+        guard requestsInProgress == 0 && !requestQueue.isEmpty else { return }
         DispatchQueue.main.async {
             let request = self.requestQueue.removeFirst()
             self.sendRequest(request)
@@ -75,7 +75,7 @@ class FinProvider {
     }
 
     private func sendRequest(_ request: RequestFuture) {
-        requestInProgress = true
+        requestsInProgress += 1
         FinProvider.instance.request(request.target) { (result) in
             self.handleRequest(result: result, request: request)
             self.dequeRequest()
@@ -83,7 +83,7 @@ class FinProvider {
     }
 
     private func handleRequest(result: MoyaResult, request: RequestFuture) {
-        self.requestInProgress = false
+        self.requestsInProgress -= 1
         switch result {
         case let .success(moyaResponse):
             #if DEBUG
@@ -128,9 +128,9 @@ class FinProvider {
     }
 
     private func handleNetworkFailureWithRetry(request: RequestFuture, duration: TimeInterval) {
-        requestInProgress = true
+        requestsInProgress += 1
         delay(duration) {
-            self.requestInProgress = false
+            self.requestsInProgress -= 1
             self.sendRequest(request)
         }
     }
