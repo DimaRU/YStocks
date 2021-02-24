@@ -13,18 +13,20 @@ class FinProvider {
     typealias RequestFuture = (target: FinAPI, resolve: (Decodable) -> Void, reject: ErrorBlock)
 
     static let shared = FinProvider()
-
+    static let callbackQueue = DispatchQueue.init(label: "queue.finprovider", qos: .utility, attributes: .concurrent)
     #if DEBUG
     static var instance = { () -> MoyaProvider<FinAPI> in
-        let configuration = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
         if let value = ProcessInfo.processInfo.environment["MoyaLogger"] {
-            return MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.defaultEndpointMapping, plugins: [NetworkLoggerPlugin(configuration: configuration)])
+            let configuration = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
+            return MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.defaultEndpointMapping,
+                                        callbackQueue: callbackQueue,
+                                        plugins: [NetworkLoggerPlugin(configuration: configuration)])
         } else {
-            return MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.defaultEndpointMapping)
+            return MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.defaultEndpointMapping, callbackQueue: callbackQueue)
         }
     }()
     #else
-    static var instance = MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.endpointClosure)
+    static var instance = MoyaProvider<FinAPI>(endpointClosure: MoyaProvider.endpointClosure, callbackQueue: callbackQueue)
     #endif
 
     // MARK: - Public
