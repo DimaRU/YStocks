@@ -10,7 +10,7 @@ import Moya
 import PromiseKit
 @testable import YStocks
 
-class YStocksTests: XCTestCase {
+class YStocksSampleProviderTests: XCTestCase {
 
     override func setUp() {
         FinAPI.sampleBundle = Bundle.init(for: Self.self)
