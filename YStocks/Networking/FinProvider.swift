@@ -32,7 +32,7 @@ class FinProvider {
     // MARK: - Public
     func request(_ target: FinAPI) -> Promise<Void> {
         let (promise, seal) = Promise<Void>.pending()
-        sendRequest((target,
+        enqueueRequest((target,
                      resolve: { _ in seal.fulfill(Void()) },
                      reject: seal.reject))
         return promise
@@ -40,7 +40,7 @@ class FinProvider {
 
     func request<T: Decodable>(_ target: FinAPI) -> Promise<T> {
         let (promise, seal) = Promise<T>.pending()
-        sendRequest((target,
+        enqueueRequest((target,
                      resolve: { self.parseData(data: $0 as! Data, seal: seal, target: target) },
                      reject: seal.reject))
         return promise
@@ -48,22 +48,42 @@ class FinProvider {
 
     func requestData(_ target: FinAPI) -> Promise<Data> {
         let (promise, seal) = Promise<Data>.pending()
-        sendRequest((target,
+        enqueueRequest((target,
                      resolve: { seal.fulfill($0 as! Data) },
                      reject: seal.reject))
         return promise
     }
 
-    private func sendRequest(_ request: RequestFuture) {
-        FinProvider.instance.request(request.target) { (result) in
-            self.handleRequest(request: request, result: result)
+    // MARK: - Private
+    private var requestInProgress = false
+    private var requestQueue: [RequestFuture] = []
+
+    private func enqueueRequest(_ request: RequestFuture) {
+        if requestInProgress || !requestQueue.isEmpty {
+            requestQueue.append(request)
+        } else {
+            sendRequest(request)
         }
     }
-}
 
-extension FinProvider {
+    private func dequeRequest() {
+        guard !requestInProgress && !requestQueue.isEmpty else { return }
+        DispatchQueue.main.async {
+            let request = self.requestQueue.removeFirst()
+            self.sendRequest(request)
+        }
+    }
 
-    private func handleRequest(request: RequestFuture, result: MoyaResult) {
+    private func sendRequest(_ request: RequestFuture) {
+        requestInProgress = true
+        FinProvider.instance.request(request.target) { (result) in
+            self.handleRequest(result: result, request: request)
+            self.dequeRequest()
+        }
+    }
+
+    private func handleRequest(result: MoyaResult, request: RequestFuture) {
+        self.requestInProgress = false
         switch result {
         case let .success(moyaResponse):
             #if DEBUG
@@ -80,10 +100,18 @@ extension FinProvider {
             case 201...299, 300...399:
                 request.resolve(moyaResponse.data)
             case 429:
+                let duration: TimeInterval
+                if
+                    let rateLimitReset = moyaResponse.response?.headers["X-Ratelimit-Reset"],
+                    let rateLimitResetTime = Double(rateLimitReset) {
+                    duration = Date(timeIntervalSince1970: rateLimitResetTime).timeIntervalSinceNow
+                } else {
+                    duration = 2
+                }
                 #if DEBUG
-                print("Error 429")
+                print("Error 429", Date(), duration)
                 #endif
-                handleNetworkFailureWithRetry(request: request)
+                handleNetworkFailureWithRetry(request: request, duration: duration)
             default:
                 handleServerError(request: request, response: moyaResponse)
             }
@@ -99,8 +127,10 @@ extension FinProvider {
         request.reject(error)
     }
 
-    private func handleNetworkFailureWithRetry(request: RequestFuture) {
-        delay(2) {
+    private func handleNetworkFailureWithRetry(request: RequestFuture, duration: TimeInterval) {
+        requestInProgress = true
+        delay(duration) {
+            self.requestInProgress = false
             self.sendRequest(request)
         }
     }
